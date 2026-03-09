@@ -1,26 +1,34 @@
 import React from "react";
+import Card from "./Card";
+import Footer from "./Footer";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+
 
 //create your first component
 const Home = () => {
-	return (
-		<div className="text-center">
-            
 
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+	const cards = [
+		{image: "https://picsum.photos/id/108/500/300", title:"Carta 1", description:"Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus."},
+		{image: "https://picsum.photos/id/66/500/300", title:"Carta 2", description:"Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus."},
+		{image: "https://picsum.photos/id/14/500/300", title:"Carta 3", description:"Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus."},
+		{image: "https://picsum.photos/id/28/500/300", title:"Carta 3", description:"Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus."},
+	];
+	return (
+		<div className="container">
+			<div className="row">	
+				{cards.map((card,index) => (
+					<Card
+					key={index}
+					image={card.image}
+					title={card.title}
+					description={card.description}
+					/>
+				))}
+			</div>
+
+			<Footer />
+
+			
 		</div>
 	);
 };
